@@ -3,6 +3,7 @@
   "private": true,
   "description": "Site about how dogs are superior to humans",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
