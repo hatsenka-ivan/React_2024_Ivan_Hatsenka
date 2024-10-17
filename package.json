@@ -1,13 +1,17 @@
 {
   "name": "react-2024-ivan-hatsenka",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "description": "Site about how dogs are superior to humans",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hatsenka-ivan/React_2024_Ivan_Hatsenka"
   },
   "dependencies": {
     "normalize.css": "^8.0.1",
