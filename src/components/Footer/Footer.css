@@ -1,0 +1,28 @@
+.footer {
+    padding: 5em 3em 3em;
+    background-image: url("../../assets/IMAGEfooter.png");
+    background-size: auto 100%;
+    background-repeat: no-repeat; 
+}
+
+.footer__top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__description {
+    color: rgba(84, 98, 133, 1);
+}
+
+.footer__description > p + p {
+    margin-top: 0.5em;
+}
+
+.footer__description-text {
+    margin-top: 1em;
+}
+
+.footer__column-wrapper {
+    display: flex;
+    gap: 5em;
+}

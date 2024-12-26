@@ -1,0 +1,60 @@
+.burger-block {
+    display: flex;
+    width: var(--block-width);
+    margin: var(--block-gap);
+    gap: 1em;
+    background-color: white;
+    padding: 1em;
+    border: 1px solid rgba(53, 184, 190, 0.15);
+    border-radius: 6px;
+}
+
+.burger-block__image {
+    align-self: center;
+}
+
+.burger-block__item-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7em;
+}
+
+.burger-block__item-info {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+    align-items: center;
+}
+
+.burger-block__name {
+    letter-spacing: 1px;
+}
+
+.burger-block__price {
+    color: var();
+    font-size: 0.8rem;
+    color: #35B8BE;
+
+}
+
+.burger-block__item-description {
+    font-size: 0.8rem;
+    color: rgba(84, 98, 133, 1);
+}
+
+.burger-block__item-cart {
+    display: flex;
+    gap: 0.8em;
+}
+
+.burger-block__item-count {
+    border: 1px solid rgba(221, 221, 221, 1);
+    background: rgba(250, 250, 250, 1);
+    height: 100%;
+    aspect-ratio: 1/ 1;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+}

@@ -1,0 +1,12 @@
+.navbar {
+    display: flex;
+}
+
+.navbar__element + .navbar__element {
+    margin-left: 1em;
+}
+
+
+.navbar__element-chosen {
+    color: var(--main-color);
+}
