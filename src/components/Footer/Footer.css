@@ -14,12 +14,12 @@
     color: rgba(84, 98, 133, 1);
 }
 
-.footer__description > p + p {
-    margin-top: 0.5em;
-}
-
 .footer__description-text {
     margin-top: 1em;
+}
+
+.footer__description > p + p {
+    margin-top: 0.5em;
 }
 
 .footer__column-wrapper {

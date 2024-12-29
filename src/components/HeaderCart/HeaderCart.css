@@ -10,7 +10,7 @@
 }
 
 .cart__item-number {
-    color: var(---color);
+    color: var(--main-color);
     box-shadow: 7px 7px 25px 0 rgba(126, 130, 143, 0.27);
     font-size: 0.8rem;
     min-width: 40%;

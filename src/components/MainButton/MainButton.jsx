@@ -1,16 +1,19 @@
-import PropTypes from 'prop-types'
-import "./MainButton.css"
+import "./MainButton.css";
+import { Component } from "react";
 
-export default function MainButton({turnedOff, text}) {
-    const bgColor = turnedOff ? "transparent" : "rgba(53, 184, 190, 1)"
-    const textColor = turnedOff ? "black" : "white"
-    return <button className="main__button" style={{backgroundColor: bgColor, color: textColor}}>
-        {text}
-    </button>
+class MainButton extends Component {
+  render() {
+    const className = this.props.primary ? "active" : "";
+    return (
+      <button
+        onClick={this.props.onClick}
+        id={this.id}
+        className={`main__button ${className}`}
+      >
+        {this.props.text}
+      </button>
+    );
+  }
 }
 
-
-MainButton.propTypes = {
-    turnedOff: PropTypes.bool,  
-    text: PropTypes.string.isRequired,  
-};
+export default MainButton;

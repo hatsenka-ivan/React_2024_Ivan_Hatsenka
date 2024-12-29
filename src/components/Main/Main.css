@@ -19,21 +19,22 @@
     text-align: center;
     font-size: 0.9rem;
     color: rgba(84, 98, 133, 1);
+}
+  
+.tool-tip-trigger {
+    display: inline-block;
     position: relative;
 }
-
-.main__menu {
-    --block-gap: 0.5em;
-    display: flex;
-    flex-wrap: wrap;
-    --block-width: calc(100% / 2 - var(--block-gap) * 2);
-}
-
+  
 .tool-tip {
+    display: none;
     position: absolute;
-    background-color: #ffffff;
+    left: 50%;
+    bottom: 150%;
+    background-color: aliceblue;
+    border: 1px solid rgba(84, 98, 133, 1);
+    border-radius: 6px;
     padding: 0.2em 0.3em;
-    margin-top: 0.4em;
 }
 
 .link_blue {
