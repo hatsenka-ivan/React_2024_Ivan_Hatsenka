@@ -1,8 +1,8 @@
-import "./MainDishBlock.css";
-import MainButton from "../MainButton/MainButton";
-import React, { useState } from "react";
+import "./DishCard.css";
+import { useState } from "react";
+import Button from "../../../components/Button/Button";
 
-export default function MainDishBlock({
+export default function DishCard({
   id,
   img,
   meal,
@@ -15,17 +15,18 @@ export default function MainDishBlock({
   function handleQuantity(e) {
     let value = e.target.value.replace(/\D/g, "");
     let quantity = 0;
+    // not more than 2-digit number for an empty string or with digits only
     quantity = value ? parseInt(value) : quantity;
     setQuantity(quantity);
   }
 
   function processAddToCart() {
     if (quantity) {
-      const newProducts = {
+      const newDishes = {
         [id]: { quantity },
       };
       handleAddToCart({
-        newProducts,
+        newDishes,
       });
     }
   }
@@ -48,11 +49,11 @@ export default function MainDishBlock({
               onChange={handleQuantity}
             />
           </div>
-          <MainButton
+          <Button
             onClick={processAddToCart}
-            active={true}
+            primary={true}
             text="Add to cart"
-          ></MainButton>
+          />
         </div>
       </div>
     </div>

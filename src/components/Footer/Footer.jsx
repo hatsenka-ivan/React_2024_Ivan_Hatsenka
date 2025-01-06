@@ -1,30 +1,51 @@
 import "./Footer.css";
 import logo from "../../assets/logo.svg";
-import FooterColumn from "../FooterColumn/FooterColumn";
-import FooterBottom from "../FooterBottom/FooterBottom";
 import { footerColumns } from "../../constants";
-import React from "react";
+import instagram from "../../assets/insta.svg";
+import twitter from "../../assets/twitter.svg";
+import yt from "../../assets/youtube.svg";
 
-export default React.memo(function Footer() {
+export default function Footer() {
   return (
     <footer className="footer">
-        <div className="footer__top">
-          <section className="footer__description">
+      <div className="footer__top">
+        <section className="footer__description">
           <img src={logo} alt="logo" />
-            <p className="footer__description-text">Takeaway & Delivery template</p>
+          <p className="footer__description-text">Takeaway & Delivery template</p>
           <p>for small - medium businesses.</p>
         </section>
         <section className="footer__column-wrapper">
-          {footerColumns.map((column) => (
-            <FooterColumn
-              link={column[0] === "TEMPLATE" ? "https://google.com" : "/"}
-              key={column[0]}
-              column={column}
-            ></FooterColumn>
-          ))}
+          {footerColumns.map((column) => {
+            const href = column[0] === "TEMPLATE" ? "https://google.com" : "/";
+            return (
+              <ul key={column[0]} className="footer__column">
+                {column.map((item) => (
+                  <li key={item}>
+                    <a href={href}>{item}</a>
+                  </li>
+                ))}
+              </ul>
+            );
+          })}
         </section>
       </div>
-      <FooterBottom />
+      <section className="footer__bottom">
+        <p className="copyright">
+          Built by <span className="blue-link">Flowbase</span> · Powered by{" "}
+          <span className="blue-link">Webflow</span>
+        </p>
+        <ul className="footer__social-media">
+          <li>
+            <img src={instagram} alt="instagram icon" />
+          </li>
+          <li>
+            <img src={twitter} alt="twitter icon" />
+          </li>
+          <li>
+            <img src={yt} alt="youtube icon" />
+          </li>
+        </ul>
+      </section>
     </footer>
   );
-});
+}

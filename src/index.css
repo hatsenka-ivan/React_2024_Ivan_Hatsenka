@@ -1,46 +1,45 @@
 :root {
-  --page-color: rgba(53, 184, 190, 1);
-  --block-width: 100%;
-  --block-gap: 1em;
-  --bar-width: 30px;
-  --bar-height: 3px;
-  --burger-gap: 6px;
-  --foreground: #333;
-  --background: #fff;
-  --animation-timing: 200ms ease-in-out;
-  --burger-height: calc(var(--bar-height) * 3 + var(--burger-gap) * 2);
-  --x-width: calc(var(--burger-height) * 1.41421356237);
-  box-sizing: border-box;
-  font-size: calc(0.6vw + 0.8em);
+    --page-color: rgba(53, 184, 190, 1);
+    --block-width: 100%;
+    --block-gap: 1em;
+    --bar-width: 30px;
+    --bar-height: 3px;
+    --burger-gap: 6px;
+    --foreground: #333;
+    --background: #fff;
+    --animation-timing: 200ms ease-in-out;
+    --burger-height: calc(var(--bar-height) * 3 + var(--burger-gap) * 2);
+    --x-width: calc(var(--burger-height) * 1.41421356237);
+    box-sizing: border-box;
+    font-size: calc(0.6vw + 0.8em);
 }
 
 @media screen and (min-width: 1000px) {
-  :root {
-    --block-width: calc(50% - var(--block-gap) / 2);
-  }
+    :root {
+        --block-width: calc(50% - var(--block-gap) / 2);
+    }
 }
 
 *,
 *::after,
 *::before {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 body {
-  --main-color: rgba(53, 184, 190, 1);
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body.no-scroll {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }

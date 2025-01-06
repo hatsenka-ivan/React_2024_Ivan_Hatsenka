@@ -1,4 +1,4 @@
-.dish-wrapper {
+.menu__content-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,9 +6,10 @@
     align-items: center;
 }
 
-.dish {
-  --block-gap: 0.5em;
+.menu__content {
     gap: var(--block-gap);
     display: flex;
     flex-wrap: wrap;
 }
+
+

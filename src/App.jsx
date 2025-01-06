@@ -1,30 +1,29 @@
 import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
+import DishGrid from "./pages/Menu/DishGrid/DishGrid";
+import Menu from "./pages/Menu/Menu";
+import Home from "./pages/Home/MainHome";
 import { useState } from "react";
-import useFetch from "./useFetch";
-import HeaderCart from "./components/HeaderCart/HeaderCart";
-import MainProductGrid from "./components/MainProductGrid/MainProductGrid";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 export default function App() {
-  const [data] = useFetch("https://65de35f3dccfcd562f5691bb.mockapi.io/api/v1");
-  const [products, setProducts] = useState({});
+  const [dishes, setDishes] = useState({});
   const [quantity, setQuantity] = useState(0);
 
-  function handleAddToCart({ newProducts = {} }) {
-    const id = Object.keys(newProducts)[0];
-    const updateQuantity = newProducts[id].quantity;
-    const updateProducts = {};
+  function handleAddToCart({ newDishes = {} }) {
+    const id = Object.keys(newDishes)[0];
+    const updateQuantity = newDishes[id].quantity;
+    const updateDishes = {};
 
-    updateProducts[id] = {
+    updateDishes[id] = {
       quantity:
-        (products[id] ? products[id].quantity : 0) + newProducts[id].quantity,
+        (dishes[id] ? dishes[id].quantity : 0) + newDishes[id].quantity,
     };
 
-    setProducts((prev) => {
+    setDishes((prev) => {
       return {
         ...prev,
-        ...updateProducts,
+        ...updateDishes,
       };
     });
 
@@ -32,14 +31,25 @@ export default function App() {
   }
 
   return (
-    <div className="App">
-      <Header>
-        <HeaderCart productsQuantity={quantity} />
-      </Header>
-      <Main>
-        <MainProductGrid data={data} handleAddToCart={handleAddToCart} />
-      </Main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Header dishesQuantity={quantity} />
+        <main className="main">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/menu"
+              element={
+                <Menu>
+                  <DishGrid handleAddToCart={handleAddToCart} />
+                </Menu>
+              }
+            />
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }

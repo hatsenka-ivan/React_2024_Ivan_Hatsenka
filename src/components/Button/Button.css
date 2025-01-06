@@ -1,5 +1,5 @@
 .main__button {
-    background-color: transparent;
+    color: #000;
     border: 1px rgba(128, 128, 128, 0.5) solid;
     border-radius: 6px;
     padding: 1em 2.5em;
@@ -11,11 +11,18 @@
 
 }
 
-.main__button.active {
+.main__button.primary {
     background: rgba(53, 184, 190, 1);
     color: white;
 }
 
-.main__button + .main__button {
-    margin-left: 2em;
+.main__button:active {
+    color: #000;
+}
+
+@media screen and (min-width: 1000px) {
+
+    .main__button {
+        transition: border-radius 0.2s ease-in-out;
+    }
 }
