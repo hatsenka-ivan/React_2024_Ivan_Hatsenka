@@ -1,19 +1,11 @@
 import "./MainButton.css";
-import { Component } from "react";
+import { forwardRef } from "react";
 
-class MainButton extends Component {
-  render() {
-    const className = this.props.primary ? "active" : "";
-    return (
-      <button
-        onClick={this.props.onClick}
-        id={this.id}
-        className={`main__button ${className}`}
-      >
-        {this.props.text}
-      </button>
-    );
-  }
-}
-
-export default MainButton;
+export default forwardRef(function MainButton({ onClick, text, active }, ref) {
+  const className = active ? "active" : "";
+  return (
+    <button ref={ref} onClick={onClick} className={`main__button ${className}`}>
+      {text}
+    </button>
+  );
+});

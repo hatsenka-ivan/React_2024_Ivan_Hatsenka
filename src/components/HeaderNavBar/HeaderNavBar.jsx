@@ -1,26 +1,21 @@
 import "./HeaderNavBar.css";
-import { Component } from "react";
+import React from "react";
 
-export default class HeaderNavBar extends Component {
-    render() {
-      return (
-        <nav>
-          <ul className="navbar">
-            <li className="navbar__element">
-              <a href="/">Home</a>
-            </li>
-            <li className="navbar__element">
-              <a href="/">Menu</a>
-            </li>
-            <li className="navbar__element">
-              <a href="/">Company</a>
-            </li>
-            <li className="navbar__element">
-              <a href="/">Login</a>
-            </li>
-          </ul>
-        </nav>
-      );
-    }
-  }
-  
+export default React.memo(function HeaderNavBar() {
+  return (
+    <nav className="navbar">
+      <a href="/" className="navbar__element">
+        Home
+      </a>
+      <a href="/" className="navbar__element">
+        Menu
+      </a>
+      <a href="/" className="navbar__element">
+        Company
+      </a>
+      <a href="/" className="navbar__element">
+        Login
+      </a>
+    </nav>
+  );
+});

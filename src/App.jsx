@@ -1,50 +1,45 @@
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
-import { Component } from "react";
+import { useState } from "react";
+import useFetch from "./useFetch";
+import HeaderCart from "./components/HeaderCart/HeaderCart";
+import MainProductGrid from "./components/MainProductGrid/MainProductGrid";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      products: {},
-      productsQuantity: 0,
+export default function App() {
+  const [data] = useFetch("https://65de35f3dccfcd562f5691bb.mockapi.io/api/v1");
+  const [products, setProducts] = useState({});
+  const [quantity, setQuantity] = useState(0);
+
+  function handleAddToCart({ newProducts = {} }) {
+    const id = Object.keys(newProducts)[0];
+    const updateQuantity = newProducts[id].quantity;
+    const updateProducts = {};
+
+    updateProducts[id] = {
+      quantity:
+        (products[id] ? products[id].quantity : 0) + newProducts[id].quantity,
     };
-    this.handleAddToCart = this.handleAddToCart.bind(this);
-  }
 
-  handleAddToCart({ products = {} }) {
-    let productsQuantity = 0;
-    const updateState = {};
-    for (let key in products) {
-      const product = products[key];
-      const existingProduct = this.state.products[key];
-      productsQuantity += product.quantity;
-      updateState[key] = {
-        price: existingProduct ? existingProduct.price : product.price,
-        quantity:
-          (existingProduct ? existingProduct.quantity : 0) + product.quantity,
+    setProducts((prev) => {
+      return {
+        ...prev,
+        ...updateProducts,
       };
-    }
+    });
 
-    this.setState((prevState) => ({
-      products: {
-        ...prevState.products,
-        ...updateState,
-      },
-      productsQuantity: prevState.productsQuantity + productsQuantity,
-    }));
+    setQuantity((prev) => prev + updateQuantity);
   }
 
-  render() {
-    return (
-      <div className="App">
-        <Header productsQuantity={this.state.productsQuantity} />
-        <Main handleAddToCart={this.handleAddToCart} />
-        <Footer />
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <Header>
+        <HeaderCart productsQuantity={quantity} />
+      </Header>
+      <Main>
+        <MainProductGrid data={data} handleAddToCart={handleAddToCart} />
+      </Main>
+      <Footer />
+    </div>
+  );
 }
-
-export default App;

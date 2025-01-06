@@ -1,41 +1,32 @@
-import { Component } from "react";
+import React, { useState } from "react";
 import MainButton from "../MainButton/MainButton";
+import "./MainMenuButtons.css";
 
-class MainMenuButtons extends Component {
-  constructor(props) {
-    super(props);
-    this.handleFilterButton = this.handleFilterButton.bind(this);
-    this.state = {
-      primaryButtonIndex: "Dessert",
-    };
+export default function MainMenuButtons({ handleFilter }) {
+  const [activeButtonIndex, setactiveButtonIndex] = useState("Dessert");
+
+  function handleFilterButton(index) {
+    setactiveButtonIndex(index);
+    handleFilter(index);
   }
 
-  handleFilterButton(index) {
-    this.setState({ primaryButtonIndex: index });
-
-  }
-
-  render() {
-    return (
-      <div>
-        <MainButton
-          primary={this.state.primaryButtonIndex === "Dessert"}
-          text="Dessert"
-          onClick={() => this.handleFilterButton("Dessert")}
-        />
-        <MainButton
-          primary={this.state.primaryButtonIndex === "Dinner"}
-          text="Dinner"
-          onClick={() => this.handleFilterButton("Dinner")}
-        />
-        <MainButton
-          primary={this.state.primaryButtonIndex === "Breakfast"}
-          text="Breakfast"
-          onClick={() => this.handleFilterButton("Breakfast")}
-        />
-      </div>
-    );
-  }
+  return (
+    <div className="main__filter-buttons">
+      <MainButton
+        active={activeButtonIndex === "Dessert"}
+        text="Dessert"
+        onClick={() => handleFilterButton("Dessert")}
+      />
+      <MainButton
+        active={activeButtonIndex === "Dinner"}
+        text="Dinner"
+        onClick={() => handleFilterButton("Dinner")}
+      />
+      <MainButton
+        active={activeButtonIndex === "Breakfast"}
+        text="Breakfast"
+        onClick={() => handleFilterButton("Breakfast")}
+      />
+    </div>
+  );
 }
-
-export default MainMenuButtons;

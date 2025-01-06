@@ -1,3 +1,10 @@
+.footer__column-wrapper {
+    display: flex;
+    gap: 1.5em;
+    margin-left: 1em;
+    flex-wrap: wrap;
+}
+
 .footer__column {
     display: flex;
     flex-direction: column;
@@ -9,4 +16,10 @@
 .footer__column > li:first-child {
     letter-spacing: 2px;
     color: rgba(8, 9, 10, 1);
+}
+
+@media screen and (min-width: 800px) {
+    .footer__column-wrapper {
+        gap: 5em;
+    }
 }

@@ -1,11 +1,11 @@
 .dish-block {
     display: flex;
     width: var(--block-width);
-    gap: 1em;
+    gap: 1.2em;
     background-color: white;
-    padding: 1em;
+    padding: 1.5em;
     border: 1px solid rgba(53, 184, 190, 0.15);
-    border-radius: 6px;
+    border-radius: 8px;
 }
 
 .dish-block__image {
@@ -30,18 +30,18 @@
 }
 
 .dish-block__name {
-    letter-spacing: 1px;
+    font-size: 0.85rem;
 }
 
 .dish-block__price {
     color: var(--main-color);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     line-height: 1.5rem;
 }
 
 .dish-block__item-description {
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: rgba(84, 98, 133, 1);
     height: 6rem;
     line-height: 1.5rem;

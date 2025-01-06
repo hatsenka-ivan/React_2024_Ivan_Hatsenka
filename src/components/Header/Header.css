@@ -5,11 +5,36 @@
     justify-content: space-between;
 }
 
-.header__navbar-wrapper {
+.header__action-wrapper {
+    margin-left: auto;
     display: flex;
     align-items: center;
+    gap: 2em;
 }
 
-.header__navbar-wrapper > * + * {
-    margin-left: 4em;
+.sidebar {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    padding: 2em 0 0 1em;
+    background: #eee;
+    width: 0;
+    right: -2em;
+    height: 100vh;
+    transition: width var(--animation-timing);
+}
+
+.burger-menu.opened + .sidebar {
+    width: 70%;
+}
+
+@media (min-width: 500px) {
+    .sidebar {
+        position: static;
+        height: auto;
+        padding: 0;
+        width: auto;
+        translate: 0;
+        background: inherit;
+    }
 }

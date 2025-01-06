@@ -6,6 +6,9 @@
     font-size: 0.7rem;
     cursor: pointer;
     letter-spacing: 1px;
+    background: transparent;
+    white-space: nowrap;
+
 }
 
 .main__button.active {

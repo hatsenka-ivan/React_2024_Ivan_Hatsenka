@@ -1,15 +1,14 @@
 .dish-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1em;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+    align-items: center;
 }
 
 .dish {
   --block-gap: 0.5em;
-  gap: var(--block-gap);
-  display: flex;
-  flex-wrap: wrap;
-  --block-width: calc(50% - var(--block-gap) / 2);
+    gap: var(--block-gap);
+    display: flex;
+    flex-wrap: wrap;
 }

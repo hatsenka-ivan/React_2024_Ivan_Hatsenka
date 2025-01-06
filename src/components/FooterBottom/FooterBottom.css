@@ -8,5 +8,16 @@
 
 .footer__social-icon {
     display: flex;
-    gap: 1.5em;
+    gap: 1em;
+    margin-left: 1em;
+}
+
+@media screen and (min-width: 500px) {
+    .footer__bottom {
+        margin-top: 7em;
+    }
+
+    .footer__social-media {
+        gap: 1.5em;
+    }
 }
