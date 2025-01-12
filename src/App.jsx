@@ -2,13 +2,19 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import DishGrid from "./pages/Menu/DishGrid/DishGrid";
 import Menu from "./pages/Menu/Menu";
-import Home from "./pages/Home/MainHome";
+import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login"
 import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 export default function App() {
+  const [isAuth, setIsAuth] = useState(false);
   const [dishes, setDishes] = useState({});
   const [quantity, setQuantity] = useState(0);
+
+  function handleAuth() {
+    setIsAuth(true);
+  }
 
   function handleAddToCart({ newDishes = {} }) {
     const id = Object.keys(newDishes)[0];
@@ -45,6 +51,7 @@ export default function App() {
                 </Menu>
               }
             />
+            <Route path="/login" element={<Login handleAuth={handleAuth} />} />
             <Route path="/" element={<Home />} />
           </Routes>
         </main>

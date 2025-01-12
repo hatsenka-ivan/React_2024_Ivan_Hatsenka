@@ -1,6 +1,7 @@
-.main {
+.main:has(.home__content-wrapper) {
     background-image: url("../../assets/home-main-bg-image.png");
     background-size: 100% 820px;
+    margin-top: 0.5em;
 }
 
 .home__content-wrapper {

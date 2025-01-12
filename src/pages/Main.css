@@ -1,6 +1,4 @@
 .main {
-    background-image: url("../assets/IMAGEbackground.png");
-    background-size: 100% auto;
     padding: 5em 3em 3em;
     display: flex;
     flex-direction: column;

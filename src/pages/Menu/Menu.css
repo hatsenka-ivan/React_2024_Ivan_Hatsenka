@@ -1,3 +1,9 @@
+.main:has(.menu__content-wrapper) {
+  background-image: url("../../assets/IMAGEbackground.png");
+  background-size: 100% auto; 
+  background-repeat: no-repeat; 
+}
+
 .tool-tip-trigger {
   display: inline-block;
   position: relative;

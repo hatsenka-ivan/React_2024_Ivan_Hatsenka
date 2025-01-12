@@ -3,7 +3,6 @@ import "./Header.css";
 import { navBar } from "../../constants";
 import logoImage from "../../assets/logo.svg";
 import cartImg from "../../assets/Framecart.svg";
-import { useState } from "react";
 
 export default function Header({ dishesQuantity }) {
   return (
