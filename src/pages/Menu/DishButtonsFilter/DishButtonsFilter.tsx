@@ -1,28 +1,34 @@
 import Button from "../../../components/Button/Button";
 import "./DishButtonsFilter.css";
 
-export default function DishButtonsFilter({ handleFilter, filterCategory }) {
-  function handleFilterButton(index) {
-    handleFilter(index);
-  }
+type DishButtonsFilterProps = {
+  handleFilter: (category: string) => void;
+  filterCategory: string;
+};
 
+function DishButtonsFilter({
+  handleFilter,
+  filterCategory,
+}: DishButtonsFilterProps) {
   return (
     <div className="main__filter-buttons">
       <Button
         primary={filterCategory === "Dessert"}
         text="Dessert"
-        onClick={() => handleFilterButton("Dessert")}
+        onClick={() => handleFilter("Dessert")}
       />
       <Button
         primary={filterCategory === "Dinner"}
         text="Dinner"
-        onClick={() => handleFilterButton("Dinner")}
+        onClick={() => handleFilter("Dinner")}
       />
       <Button
         primary={filterCategory === "Breakfast"}
         text="Breakfast"
-        onClick={() => handleFilterButton("Breakfast")}
+        onClick={() => handleFilter("Breakfast")}
       />
     </div>
   );
 }
+
+export default DishButtonsFilter;

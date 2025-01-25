@@ -1,7 +1,8 @@
 import "./../Main.css";
 import "./Menu.css";
+import { type ComponentChildProp } from "../../types/global.types";
 
-export default function Menu({ children }) {
+export default function Menu({ children }: ComponentChildProp) {
   return (
     <>
       <h1 className="main__heading">Browse our menu</h1>

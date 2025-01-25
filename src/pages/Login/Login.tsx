@@ -1,31 +1,31 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Button from "../../components/Button/Button";
 import "./Login.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebaseConfig";
 import { useNavigate } from "react-router-dom";
 
-export default function Login({ handleAuth }) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+function Login() {
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const navigator = useNavigate();
 
-  function handleSubmit(e) {
+  function handleSubmit(e: React.FormEvent<HTMLButtonElement>) {
     e.preventDefault();
     setPassword(""); //hatsenka.ivan@student.ehu.lt
     setUsername(""); //123456
     signInWithEmailAndPassword(auth, username, password)
       .then(() => {
-        handleAuth();
         navigator("/");
+        window.scrollTo(0, 0);
       })
       .catch((error) => {
-        console.log(error.code, error.message);
-        alert("A newcomer, huh?");
+        console.error(error.code, error.message);
+        alert("You seem to be logged out. Silly you. Login is hatsenka.ivan@student.ehu.lt. Password is 123456. Very simple if you ask me.");
       });
   }
 
-  function handleCancel(e) {
+  function handleCancel(e: React.FormEvent<HTMLButtonElement>) {
     e.preventDefault();
     setUsername("");
     setPassword("");
@@ -35,13 +35,12 @@ export default function Login({ handleAuth }) {
     <>
       <h1 className="main__heading">Log in</h1>
       <section className="login-block-wrapper">
-        <form className="login-block" action="">
+        <form className="login-block">
           <label htmlFor="username">
             User name
             <input
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              id="username"
               type="email"
               name="username"
             />
@@ -52,7 +51,6 @@ export default function Login({ handleAuth }) {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               type="password"
-              id="password"
               name="password"
             />
           </label>
@@ -65,3 +63,5 @@ export default function Login({ handleAuth }) {
     </>
   );
 }
+
+export default Login;

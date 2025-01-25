@@ -4,33 +4,39 @@ import Button from "../../../components/Button/Button";
 import DishCard from "../DishCard/DishCard";
 import DishButtonsFilter from "../DishButtonsFilter/DishButtonsFilter";
 import useFetch from "../../../customHooks/useFetch";
+import type { DataDish, THandleAddToCart } from "../../../types/global.types";
 
-export default function DishGrid({ handleAddToCart }) {
-  const data = useFetch("https://65de35f3dccfcd562f5691bb.mockapi.io/api/v1");
-  const [amountOfDisplayedItems, setAmountOfDisplayedItems] = useState(6);
-  const [filterCategory, setFilterCategory] = useState("Dessert");
-  const [filteredData, setFilteredData] = useState(null);
+function DishGrid({ handleAddToCart }: THandleAddToCart) {
+  const data = useFetch<Array<DataDish>>(
+    "https://65de35f3dccfcd562f5691bb.mockapi.io/api/v1",
+  );
+  const [amountOfDisplayedItems, setAmountOfDisplayedItems] =
+    useState<number>(6);
+  const [filterCategory, setFilterCategory] = useState<string>("Dessert");
+  const [filteredData, setFilteredData] = useState<Array<DataDish> | null>(
+    null,
+  );
   const itemsToDisplay = 6;
 
   useEffect(() => {
     if (data) {
       setFilteredData(
-        data.filter((product) => product.category === filterCategory),
+        data.filter((dish) => dish.category === filterCategory),
       );
     }
   }, [JSON.stringify(data), filterCategory]);
 
-  function handleFilter(filter) {
+  const handleFilter = (filter: string) => {
     setFilterCategory(filter);
     setAmountOfDisplayedItems(itemsToDisplay);
-  }
+  };
 
-  function handleSeeMore() {
+  const handleSeeMore = () => {
     setAmountOfDisplayedItems((prev) => prev + itemsToDisplay);
-  }
+  };
 
   function showItems() {
-    return filteredData
+    return filteredData!
       .slice(0, amountOfDisplayedItems)
       .map((item) => (
         <DishCard
@@ -61,3 +67,5 @@ export default function DishGrid({ handleAddToCart }) {
     </>
   );
 }
+
+export default DishGrid;
