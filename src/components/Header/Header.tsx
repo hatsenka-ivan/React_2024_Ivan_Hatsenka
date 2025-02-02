@@ -5,12 +5,11 @@ import logoImage from "../../assets/logo.svg";
 import cartImg from "../../assets/Framecart.svg";
 import { useContext } from "react";
 import { LoginContext } from "../../App";
+import { useAppSelector } from "../../app/hooks";
 
-type HeaderProps = {
-  dishesQuantity: number;
-};
 
-export default function Header({ dishesQuantity }: HeaderProps) {
+export default function Header() {
+  const dishesQuantity = useAppSelector(state => state.dishes.quantity)
   const isLogged = useContext(LoginContext);
   if (!isLogged) {
     return (

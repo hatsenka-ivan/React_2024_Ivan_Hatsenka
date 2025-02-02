@@ -8,13 +8,10 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login"
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebaseConfig";
-import { Cart } from "./types/global.types";
 
 export const LoginContext = createContext(false);
 
 export default function App() {
-  const [dishes, setDishes] = useState<Cart>({});
-  const [quantity, setQuantity] = useState<number>(0);
   const [isLogged, setIsLogged] = useState<boolean>(false);
 
   useEffect(() => {
@@ -27,31 +24,12 @@ export default function App() {
     });
   }, []);
 
-  function handleAddToCart(newDishes: Cart): void {
-    const dishIds = Object.keys(newDishes);
-
-    const updatedDishes = dishIds.reduce((acc, id) => {
-      const existingQuantity = dishes[id]?.quantity || 0;
-      const additionalQuantity = newDishes[id].quantity;
-      acc[id] = { quantity: existingQuantity + additionalQuantity };
-      return acc;
-    }, {} as Cart);
-
-    setDishes((prev) => ({ ...prev, ...updatedDishes }));
-
-    const totalNewQuantity = dishIds.reduce(
-      (total, id) => total + newDishes[id].quantity,
-      0,
-    );
-    setQuantity((prev) => prev + totalNewQuantity);
-  }
-
   if (!isLogged) {
     return (
       <Router>
       <div className="App">
           <LoginContext.Provider value={isLogged}>
-            <Header dishesQuantity={quantity} />
+            <Header />
             <main className="main">
               <Routes>
                 <Route path="/" element={<Login />} />
@@ -67,7 +45,7 @@ export default function App() {
     <Router>
       <div className="App">
           <LoginContext.Provider value={isLogged}>
-            <Header dishesQuantity={quantity} />
+            <Header />
             <main className="main">
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -76,7 +54,7 @@ export default function App() {
                   element={
                     <Menu
                       children={
-                        <DishGrid handleAddToCart={handleAddToCart} />
+                        <DishGrid />
                       }
                     />
                   }

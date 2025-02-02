@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import "./DishCard.css";
 import Button from "../../../components/Button/Button";
-import type {
-  DataDish,
-  THandleAddToCart,
-} from "../../../types/global.types";
+import type { MenuType } from "../../../types/global.types";
+import { useAppDispatch } from "../../../app/hooks";
+import { addDish } from "../../../features/dishes/dishesSlice";
 
-type DishCardProps = DataDish & THandleAddToCart;
+type DishCardProps = MenuType;
 
 function DishCard({
   id,
@@ -14,10 +13,10 @@ function DishCard({
   meal,
   price,
   instructions,
-  handleAddToCart,
 }: DishCardProps) {
   const [quantity, setQuantity] = useState<number>(1);
   const [isImageLoaded, setIsImageLoaded] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
 
   function handleQuantity(e: React.ChangeEvent<HTMLInputElement>) {
     const value = e.target.value.replace(/\D/g, "");
@@ -27,10 +26,8 @@ function DishCard({
 
   function processAddToCart() {
     if (quantity > 0) {
-      const newDishes = {
-        [id]: { quantity },
-      };
-      handleAddToCart(newDishes);
+      const newDishes = { id, quantity };
+      dispatch(addDish(newDishes));
     }
   }
 
