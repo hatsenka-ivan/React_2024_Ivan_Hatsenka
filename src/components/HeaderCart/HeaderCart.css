@@ -1,0 +1,26 @@
+.cart {
+    background-color: var(--main-color);
+    padding: 1em;
+    position: relative;
+    border-radius: 4px;
+}
+
+.cart__img {
+    margin: auto;
+}
+
+.cart__item-number {
+    color: var(--main-color);
+    box-shadow: 7px 7px 25px 0 rgba(126, 130, 143, 0.27);
+    font-size: 0.8rem;
+    min-width: 40%;
+    aspect-ratio: 1 / 1;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -10%;
+    right: -10%;
+}

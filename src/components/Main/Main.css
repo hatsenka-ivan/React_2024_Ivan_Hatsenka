@@ -1,0 +1,46 @@
+.main {
+    background-image: url("../../assets/IMAGEbackground.png");
+    background-size: 100% 100%; 
+    background-repeat: no-repeat; 
+    padding: 7em 5em 5em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+}
+
+.main__title {
+    font-size: 2.7rem;
+    color: var(--main-color);
+}
+
+.main__description {
+    max-width: 45%;
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(84, 98, 133, 1);
+}
+  
+.tool-tip-trigger {
+    display: inline-block;
+    position: relative;
+}
+  
+.tool-tip {
+    display: none;
+    position: absolute;
+    left: 50%;
+    bottom: 150%;
+    background-color: aliceblue;
+    border: 1px solid rgba(84, 98, 133, 1);
+    border-radius: 6px;
+    padding: 0.2em 0.3em;
+}
+
+.link_blue {
+    color: var(--main-color);
+}
+
+.link_blue:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,12 @@
+.footer__column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    font-size: 0.8rem;
+    color: rgba(84, 98, 133, 1);
+}
+
+.footer__column > li:first-child {
+    letter-spacing: 2px;
+    color: rgba(8, 9, 10, 1);
+}
