@@ -1,4 +1,3 @@
-import "./../Main.css";
 import Button from "../../components/Button/Button";
 import mainImage from "../../assets/home-main-image.png";
 import starRating from "../../assets/rating-star.svg";

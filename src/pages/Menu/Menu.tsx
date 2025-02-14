@@ -1,4 +1,3 @@
-import "./../Main.css";
 import "./Menu.css";
 import { type ComponentChildProp } from "../../types/global.types";
 

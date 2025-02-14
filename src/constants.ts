@@ -6,3 +6,5 @@ export const footerColumns = [
   ["TEMPLATE", "Style Guide", "Licence", "Webflow University"],
   ["FLOWBASE", "More Cloneables"],
 ];
+
+export const menuCategories = ["Dessert", "Dinner", "Breakfast"];

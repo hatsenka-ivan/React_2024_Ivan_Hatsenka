@@ -13,3 +13,9 @@ export type MenuType = {
 export type ComponentChildProp = {
   children: React.ReactNode;
 };
+
+export type ChosenDish = {
+  id: string;
+  quantity: number;
+};
+

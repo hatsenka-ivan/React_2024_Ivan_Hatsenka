@@ -1,5 +1,6 @@
 import Button from "../../../components/Button/Button";
 import "./DishButtonsFilter.css";
+import { menuCategories } from "../../../constants";
 
 type DishButtonsFilterProps = {
   handleFilter: (category: string) => void;
@@ -12,21 +13,14 @@ function DishButtonsFilter({
 }: DishButtonsFilterProps) {
   return (
     <div className="main__filter-buttons">
-      <Button
-        primary={filterCategory === "Dessert"}
-        text="Dessert"
-        onClick={() => handleFilter("Dessert")}
-      />
-      <Button
-        primary={filterCategory === "Dinner"}
-        text="Dinner"
-        onClick={() => handleFilter("Dinner")}
-      />
-      <Button
-        primary={filterCategory === "Breakfast"}
-        text="Breakfast"
-        onClick={() => handleFilter("Breakfast")}
-      />
+      {menuCategories.map((category) => (
+        <Button
+          key={category}
+          primary={filterCategory === category}
+          text={category}
+          onClick={() => handleFilter(category)}
+        />
+      ))}
     </div>
   );
 }

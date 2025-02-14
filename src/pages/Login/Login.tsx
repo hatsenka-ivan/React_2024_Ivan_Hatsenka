@@ -12,8 +12,8 @@ function Login() {
 
   function handleSubmit(e: React.FormEvent<HTMLButtonElement>) {
     e.preventDefault();
-    setPassword(""); //hatsenka.ivan@student.ehu.lt
-    setUsername(""); //123456
+    setPassword(""); 
+    setUsername(""); 
     signInWithEmailAndPassword(auth, username, password)
       .then(() => {
         navigator("/");

@@ -1,0 +1,27 @@
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
+    input {
+        width: 100%;
+        background-color: rgba(250, 250, 250, 1);
+        border: 1px solid rgba(221, 221, 221, 1);
+        border-radius: 6px;
+        height: 30px;
+        font-size: clamp(16px, 1rem, 1.3rem);
+    }
+}
+
+@media screen and (min-width: 500px) {
+    label {
+        display: flex;
+        flex-direction: row;
+        gap: 2em;
+        align-items: center;
+
+        input {
+            width: 250px;
+        }
+    }
+}

@@ -1,9 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-type ChosenDish = {
-  id: string;
-  quantity: number;
-};
+import { ChosenDish } from "src/types/global.types";
 
 type Dish = { Dishes: ChosenDish[]; quantity: number };
 const initialState: Dish = {
@@ -33,10 +29,23 @@ const DishesSlice = createSlice({
       state.Dishes.splice(index, 1);
       state.quantity -= action.payload.quantity;
     },
+    updateQuantity(
+      state,
+      action: PayloadAction<{ dish: ChosenDish; quantity: number }>,
+    ) {
+      const dishIndex = state.Dishes.findIndex(
+        (dish) => dish.id === action.payload.dish.id,
+      );
+      state.quantity =
+        state.quantity -
+        state.Dishes[dishIndex].quantity +
+        action.payload.quantity;
+      state.Dishes[dishIndex].quantity = action.payload.quantity;
+    },
   },
 });
 
 
-export const { addDish, removeDish } = DishesSlice.actions;
+export const { addDish, removeDish, updateQuantity } = DishesSlice.actions;
 
 export default DishesSlice.reducer;
