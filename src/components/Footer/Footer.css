@@ -1,6 +1,6 @@
 .footer {
     padding: 3em 1em 2em;
-    background-image: url("../../assets/IMAGEfooter.png");
+    background-image: var(--theme-background-image-gradient), url("../../assets/IMAGEfooter.png");
     background-size: auto 100%;
     background-repeat: no-repeat; 
 }
@@ -11,11 +11,12 @@
 }
 
 .footer__description {
-    color: rgba(84, 98, 133, 1);
+    color: var(--theme-special-text-color);
 }
 
 .footer__description-text {
     margin-top: 1em;
+    color: var(--theme-special-text-color);
 }
 
 .footer__description > p + p {
@@ -34,12 +35,12 @@
     flex-direction: column;
     gap: 1.5em;
     font-size: 0.8rem;
-    color: rgba(84, 98, 133, 1);
+    color: var(--theme-special-text-color);
 }
 
 .footer__column > li:first-child {
     letter-spacing: 2px;
-    color: rgba(8, 9, 10, 1);
+    color: var(--theme-text-color);
 }
 
 

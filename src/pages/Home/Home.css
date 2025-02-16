@@ -1,7 +1,7 @@
 .main:has(.home__content-wrapper) {
-    background-image: url("../../assets/home-main-bg-image.png");
-    background-size: 100% 820px;
-    margin-top: 0.5em;
+    background-image: var(--theme-background-image-gradient), url("../../assets/home-main-bg-image.png");
+    background-size: 100% auto;
+    background-color: var(--theme-background);
 }
 
 .home__content-wrapper {
@@ -41,7 +41,7 @@
 }
 
 .home__content__description {
-    color: rgba(84, 98, 133, 1);
+    color: var(--theme-special-text-color);
     line-height: 1.4em;
 }
 

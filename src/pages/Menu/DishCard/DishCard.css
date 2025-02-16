@@ -2,7 +2,7 @@
     display: flex;
     width: var(--block-width);
     gap: .5em;
-    background-color: white;
+    background-color: rgb(var(--theme-card-background));
     padding: 1em;
     border: 1px solid rgba(53, 184, 190, 0.15);
     border-radius: 6px;
@@ -31,6 +31,7 @@
 
 .dish-block__name {
     letter-spacing: 1px;
+    color: var(--theme-text-color);
 }
 
 .dish-block__price {
@@ -42,7 +43,7 @@
 .dish-block__item-description {
     cursor: pointer;
     font-size: 0.8rem;
-    color: rgba(84, 98, 133, 1);
+    color: var(--theme-special-text-color);
     line-height: 1.5rem;
     max-height: 4.5rem;
     overflow: hidden;
@@ -51,13 +52,13 @@
 }
 
 .dish-block__item-description::after {
-    dish: "";
+    content: "";
     position: absolute;
     top: 66.67%;
     right: 0;
     bottom: 0;
     width: 40%;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: linear-gradient(to right, rgb(var(--theme-card-background), 0) 0%, rgb(var(--theme-card-background)) 100%);
 }
 
 .dish-block__item-cart {

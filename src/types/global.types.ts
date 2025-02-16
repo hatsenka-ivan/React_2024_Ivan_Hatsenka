@@ -19,3 +19,8 @@ export type ChosenDish = {
   quantity: number;
 };
 
+export type ThemeColorContext = {
+  themeColor: string;
+  toggleTheme: () => void;
+};
+

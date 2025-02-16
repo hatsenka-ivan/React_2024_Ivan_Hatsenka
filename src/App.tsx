@@ -13,6 +13,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebaseConfig";
 import { logInUser } from "./features/user/userSlice";
 import { logOutUser } from "./features/user/userSlice";
+import ThemeProvider from "./contexts/theme/ThemeProvider";
 
 export default function App() {
   const isLoggedIn = useAppSelector((state) => state.user.isLoggedIn);
@@ -30,22 +31,24 @@ export default function App() {
 
   return (
     <Router>
-      <Header />
-        <Routes>
-          <Route path="/" element={<MainLayout />}>
-            <Route index element={<Home />} />
-            <Route
-              path="/menu"
-              element={ <Menu children={ <DishGrid /> } /> }
-              />
-            <Route path="/login" element={<Login />} />
-            <Route
-                path="/order"
-                element={isLoggedIn ? <Order /> : <Navigate to="/login" />}
-              />
-          </Route>
-        </Routes>
-      <Footer />
+      <ThemeProvider>
+        <Header />
+          <Routes>
+            <Route path="/" element={<MainLayout />}>
+              <Route index element={<Home />} />
+              <Route
+                path="/menu"
+                element={ <Menu children={ <DishGrid /> } /> }
+                />
+              <Route path="/login" element={<Login />} />
+              <Route
+                  path="/order"
+                  element={isLoggedIn ? <Order /> : <Navigate to="/login" />}
+                />
+            </Route>
+          </Routes>
+        <Footer />
+      </ThemeProvider>
     </Router>
   );
 }

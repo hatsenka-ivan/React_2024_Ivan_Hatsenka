@@ -1,13 +1,6 @@
-.main:has(.login-block-wrapper) {
-    background-image: url("../../assets/IMAGEbackground.png");
-    background-size: 100% auto; 
-    background-repeat: no-repeat; 
-    height: 85vh;
-}
-
 .login-block-wrapper {
     width: 60%;
-    background-color: #fff;
+    background-color: rgb(var(--theme-card-background));
     border: 1px solid rgba(53, 184, 190, 0.15);
     border-radius: 6px;
 
@@ -46,6 +39,10 @@
 
     button + button {
         margin-top: 1.5em;
+    }
+
+    span {
+        color: var(--theme-text-color);
     }
 }
 
