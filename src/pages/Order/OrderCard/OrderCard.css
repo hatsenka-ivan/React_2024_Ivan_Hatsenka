@@ -1,0 +1,73 @@
+.order__card {
+    margin-top: 1em;
+    border: 1px solid rgba(53, 184, 190, 0.15);
+    border-radius: 6px;
+    background-color: rgb(var(--theme-card-background));
+    padding: 1em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.order__card img {
+    border-radius: 6px;
+    width: 120px;
+    height: 120px;
+}
+
+.order__card-tools {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+    min-width: 0; /* Allows flex items to shrink properly */
+}
+
+.order__card-tools > p {
+    text-align: center;
+}
+
+.order__card__action-buttons {
+    white-space: nowrap;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.order__card-tools button {
+    text-align: center;
+    width: 42px;
+    height: 42px;
+    padding: 0.1em 0;
+}
+
+.order__card-tools .dish__count {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+@media screen and (min-width: 500px) {
+
+    .order__card {
+        padding: 2em;
+    }
+}
+
+@media screen and (min-width: 800px) {
+
+    .order__card {
+        padding: 2em 3em;
+    }
+
+    .order__card-tools {
+        flex-direction: row;
+    }
+
+    .order__card-tools > p {
+        margin-left: 2em;
+        margin-right: auto;
+    }
+}
