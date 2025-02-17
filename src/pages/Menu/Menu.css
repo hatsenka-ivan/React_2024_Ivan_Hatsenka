@@ -1,0 +1,27 @@
+.main:has(.menu__content-wrapper) {
+  background-image: url("../../assets/IMAGEbackground.png");
+  background-size: 100% auto; 
+  background-repeat: no-repeat; 
+}
+
+.tool-tip-trigger {
+  display: inline-block;
+  position: relative;
+}
+
+.tool-tip-trigger:hover > .tool-tip {
+  display: block;
+  width: max-content;
+  transform: translateX(-50%);
+}
+
+.tool-tip {
+  display: none;
+  position: absolute;
+  left: 50%;
+  bottom: 150%;
+  background-color: aliceblue;
+  border: 1px solid rgba(84, 98, 133, 1);
+  border-radius: 6px;
+  padding: 0.2em 0.3em;
+}

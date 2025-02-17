@@ -1,0 +1,10 @@
+.main__filter-buttons {
+    display: flex;
+    gap: 0.5em
+}
+
+@media screen and (min-width: 500px) {
+    .main__filter-buttons {
+        gap: 2em;
+    }
+}
