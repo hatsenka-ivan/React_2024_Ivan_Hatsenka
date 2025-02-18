@@ -15,6 +15,7 @@ export default function ProductCount({
   return (
     <div className="product__count">
       <input
+        role="order-card-input"
         onBlur={onBlur}
         maxLength={2}
         type="text"
