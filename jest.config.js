@@ -1,0 +1,36 @@
+export default {
+  collectCoverage: true,
+  collectCoverageFrom: [
+    "**/src/**/*.{ts,tsx}",
+    "!**/*.d.ts",
+    "!**/node_modules/**",
+    "!src/**/components/**/index.{js,jsx,ts,tsx}",
+    "!src/**/components/**/styles.{js,ts}",
+    "!src/**/components/**/__tests__/**/*.{js,jsx,ts,tsx}",
+    "!**/reportWebVitals.{js, ts}",
+    "!**/index.{js, ts}",
+    "!**/coverage**",
+    "!**/src/**/types/**",
+    "!**/src/**/styles/**",
+    "!**/src/**/constants/**",
+  ],
+  coverageDirectory: "coverage",
+  coverageReporters: ["json-summary", "text", "html", "lcov"],
+  moduleFileExtensions: ["js", "jsx", "ts", "tsx"],
+  moduleNameMapper: {
+    "\\.svg$": "<rootDir>/__mocks__/svgMock.js",
+    "\\.(css|less|scss|sass)$": "<rootDir>/__mocks__/styleMock.js",
+    "^@/(.*)$": "<rootDir>/src/$1",
+  },
+  setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
+  testEnvironment: "jsdom",
+  testPathIgnorePatterns: ["/node_modules/", "/build/"],
+  transform: {
+    "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
+  },
+  transformIgnorePatterns: [
+    "/node_modules/(?!@src/.*)",
+    "^.+\\.module\\.(css|sass|scss)$",
+  ],
+  verbose: true,
+};
